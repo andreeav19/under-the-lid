@@ -7,7 +7,7 @@ public class MovePot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        destinationRotation = gameObject.transform.localRotation;
     }
 
     // Update is called once per frame
@@ -16,13 +16,17 @@ public class MovePot : MonoBehaviour
         HandlePotMovement();
     }
 
+
+    private Quaternion destinationRotation;
     void HandlePotMovement()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
-            gameObject.transform.eulerAngles = new Vector3(0, 0, 90);
+            destinationRotation = Quaternion.Euler(new Vector3(0, 0, 180));
         else if (Input.GetKeyDown(KeyCode.RightArrow))
-            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+            destinationRotation = Quaternion.Euler(new Vector3(0, 0, 270));
         else if (Input.GetKeyDown(KeyCode.DownArrow))
-            gameObject.transform.eulerAngles = new Vector3(0, 0, -90);
+            destinationRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        
+        gameObject.transform.localRotation = Quaternion.Lerp(gameObject.transform.localRotation, destinationRotation, .5f);
     }
 }
