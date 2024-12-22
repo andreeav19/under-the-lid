@@ -22,7 +22,7 @@ public class EnvironmentGenerator : MonoBehaviour
     
     private GameObject firstEnvironment;
     private GameObject secondEnvironment;
-    private EnvironmentType currentEnvironmentType;
+    [HideInInspector] public EnvironmentType currentEnvironmentType;
     private int remainingEnvironments;
     
     // Start is called before the first frame update
