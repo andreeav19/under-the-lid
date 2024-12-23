@@ -28,9 +28,15 @@ public class IngredientSpawner : MonoBehaviour
         bool isGoodIngredient = GenerateIngredientType();
 
         if (isGoodIngredient && goodIngredients.Count != 0)
-            InstantiateIngredient(goodIngredients);
+        {
+            GameObject ingredient = InstantiateIngredient(goodIngredients);
+            ingredient.tag = "Good Ingredient";
+        }
         else if (!isGoodIngredient && badIngredients.Count != 0)
-            InstantiateIngredient(badIngredients);
+        {
+            GameObject ingredient = InstantiateIngredient(badIngredients);
+            ingredient.tag = "Bad Ingredient";
+        }
     }
     
     // Returns true for good ingredients and false for bad ingredients
@@ -39,10 +45,10 @@ public class IngredientSpawner : MonoBehaviour
         return UnityEngine.Random.Range(0, 101) < goodIngredientProbability;
     }
 
-    void InstantiateIngredient(List<GameObject> ingredients)
+    GameObject InstantiateIngredient(List<GameObject> ingredients)
     {
         var randomIndex = UnityEngine.Random.Range(0, ingredients.Count);
-        GameObject.Instantiate(ingredients[randomIndex],
+        return GameObject.Instantiate(ingredients[randomIndex],
             gameObject.transform.position,
             Quaternion.identity,
             gameObject.transform

@@ -29,7 +29,7 @@ public class EnvironmentGenerator : MonoBehaviour
     void Start()
     {
         firstEnvironment = GameObject.Instantiate(woodsEnvironments[0]);
-        secondEnvironment = GameObject.Instantiate(woodsEnvironments[0], new Vector3(distanceRange, 0f, 0f),
+        secondEnvironment = GameObject.Instantiate(woodsEnvironments[1], new Vector3(distanceRange, 0f, 0f),
             Quaternion.identity);
         currentEnvironmentType = EnvironmentType.Woods;
         remainingEnvironments = 1;

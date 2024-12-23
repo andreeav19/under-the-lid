@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     private int remainingJumps;
     private Animator animator;
+    private int goodIngredients = 0;
+    private int badIngredients = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,20 @@ public class PlayerBehaviour : MonoBehaviour
         {
             remainingJumps = maxJumps;
             animator.Play("walk");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Good Ingredient"))
+        {
+            goodIngredients++;
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Bad Ingredient"))
+        {
+            badIngredients++;
+            Destroy(other.gameObject);            
         }
     }
 }
