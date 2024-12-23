@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Food
+  m_Name: BadFood
   m_Shader: {fileID: -6465566751694194690, guid: e050c2f5297e4c847a014459ef28f4e6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -54,7 +54,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Thickness: 0.04
+    - _Thickness: 0.08
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0.083586216, a: 1}
+    - _Color: {r: 1, g: 0.0489275, b: 0, a: 1}
   m_BuildTextureStacks: []
