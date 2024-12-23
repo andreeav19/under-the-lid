@@ -16,14 +16,17 @@ public class EnvironmentGenerator : MonoBehaviour
     [SerializeField] private List<GameObject> graveyardEnvironments = new List<GameObject>();
     [SerializeField] private List<GameObject> snowEnvironments = new List<GameObject>();
     [SerializeField] private List<GameObject> woodsEnvironments = new List<GameObject>();
+    [SerializeField] private GameObject cityPrefab;
     [SerializeField] private float speed = 4.5f;
     [SerializeField] private float distanceRange = 24.35f;
     [SerializeField] private int maxEnvironments = 4;
+    [SerializeField] private int cityFrequency = 8;
     
     private GameObject firstEnvironment;
     private GameObject secondEnvironment;
     [HideInInspector] public EnvironmentType currentEnvironmentType;
     private int remainingEnvironments;
+    private int totalEnvironments;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class EnvironmentGenerator : MonoBehaviour
             Quaternion.identity);
         currentEnvironmentType = EnvironmentType.Woods;
         remainingEnvironments = 1;
+        totalEnvironments = 2;
     }
 
     // Update is called once per frame
@@ -70,25 +74,35 @@ public class EnvironmentGenerator : MonoBehaviour
     
     void CreateEnvironmentLayer(EnvironmentType environmentType)
     {
+        bool isCity = totalEnvironments % cityFrequency == 0;
         switch (environmentType)
         {
             case EnvironmentType.Desert:
-                secondEnvironment = InstantiateLayer(desertEnvironments);
+                secondEnvironment = InstantiateLayer(desertEnvironments, isCity);
                 break;
             case EnvironmentType.Graveyard:
-                secondEnvironment = InstantiateLayer(graveyardEnvironments);
+                secondEnvironment = InstantiateLayer(graveyardEnvironments, isCity);
                 break;
             case EnvironmentType.Snow:
-                secondEnvironment = InstantiateLayer(snowEnvironments);
+                secondEnvironment = InstantiateLayer(snowEnvironments, isCity);
                 break;
             case EnvironmentType.Woods:
-                secondEnvironment = InstantiateLayer(woodsEnvironments);
+                secondEnvironment = InstantiateLayer(woodsEnvironments, isCity);
                 break;
         }
     }
 
-    GameObject InstantiateLayer(List<GameObject> environmentList)
+    GameObject InstantiateLayer(List<GameObject> environmentList, bool isCity=false)
     {
+        totalEnvironments++;
+        if (isCity)
+        {
+            GameObject returnObject = GameObject.Instantiate(environmentList[0], new Vector3(distanceRange, 0f, 0f),
+                Quaternion.identity);
+            GameObject.Instantiate(cityPrefab, new Vector3(distanceRange, 0f, 0f), Quaternion.identity, 
+                returnObject.transform);
+            return returnObject;
+        }
         int randomIndex = UnityEngine.Random.Range(0, environmentList.Count);
         return GameObject.Instantiate(environmentList[randomIndex], new Vector3(distanceRange, 0f, 0f),
             Quaternion.identity);

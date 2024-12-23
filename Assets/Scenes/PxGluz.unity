@@ -483,6 +483,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: cityPrefab
+      value: 
+      objectReference: {fileID: 7359940035119490968, guid: e8566853d516de1429d0b7d004d92d6f, type: 3}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: cityFrequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: snowEnvironments.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: woodsEnvironments.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: desertEnvironments.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: snowEnvironments.Array.data[1]
+      value: 
+      objectReference: {fileID: 4898573670549786742, guid: d870eb70de77f314fad80a13f9fed79c, type: 3}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: woodsEnvironments.Array.data[1]
+      value: 
+      objectReference: {fileID: 3705393456189278341, guid: 9708869b964773c4b99364e9c43fb658, type: 3}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: desertEnvironments.Array.data[1]
+      value: 
+      objectReference: {fileID: 7589032147486571855, guid: 39e10ce9437106a478f7b36c3a907a5b, type: 3}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: graveyardEnvironments.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856655767188510205, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
+      propertyPath: graveyardEnvironments.Array.data[1]
+      value: 
+      objectReference: {fileID: 8451460796330018468, guid: 24150b359a7e111489a85f03f8596a58, type: 3}
     - target: {fileID: 4891096764004520913, guid: f02c707277cce3b4788ca956dca5d9f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
